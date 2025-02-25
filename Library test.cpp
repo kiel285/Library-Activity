@@ -37,8 +37,9 @@ class Book{
 
 int main(){
 	vector<Book> books;
-	int Shelf;
+	char Shelf;
 	char Loop = 'Y'; 
+	
 	
 	while (Loop == 'Y' || Loop == 'y'){
         cout<<"----------------------------------"<<endl;
@@ -53,6 +54,7 @@ int main(){
         cout<<"----------------------------------"<<endl;
 		cin.ignore();
 		switch(Shelf){
+		
 			case 1:
             {
 				cout<<"Terminating Shelf"<<endl;
@@ -88,28 +90,41 @@ int main(){
 			case 3:{
                 if (books.size()<1){
                     cout<<"Shelf is empty"<<endl;
-                    cout<<"----------------------------------"<<endl;}
-                    
+                    cout<<"----------------------------------"<<endl;
+				break;}
+					
                 else{
 				    cout<<"Displaying The Shelf"<<endl;
                     cout<<"----------------------------------"<<endl;
 				    for (int i = 0;i<books.size();++i) {
                         cout<<"----------------------------------"<<endl;
 					    cout<<"Book "<<i + 1<<endl;
-					    books[i].Display(); }                    
+					    books[i].Display(); }  
+
+				break;}
+					}
+			default:{
+				cout<<"Invalid Input"<<endl;
+				break;}
 				}
-				break;
-            }
-			default:
-                cout<<"Invalid Input"<<endl;
-				break;
-            
-		}
-		
+	
+	bool input = false;
+	while (!input){
+		cout<<"----------------------------------"<<endl;
 		cout<<"Would you like to Repeat the Program? (Y/N): ";
 		cin>>Loop;
-		
+
+	if(Loop == 'Y' || Loop == 'y'){
+		input = true;}
+	else if (Loop == 'N' || Loop == 'n'){
+		cout<<"----------------------------------"<<endl;
+		cout<<"Terminating Shelf"<<endl;
+		cout<<"----------------------------------"<<endl;
+		input = true;}		
+	else {
+		cout<<"----------------------------------"<<endl;
+		cout<<"invalid Input try again"<<endl;}
 	}
-	
+}
 	return 0;
 }
